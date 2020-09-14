@@ -27,11 +27,17 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * counter 1 will return a function and remember multiple pieces of data where counter 2 will not
+ * 
+ * counter 1 will return a function and remember multiple pieces of data where counter 2 will not.
+ * 
  * 2. Which of the two uses a closure? How can you tell?
+ * 
  * the fitst counter uses closer.
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * 
  *conter 1 if you lan on having multiple games/counters and counter 2 if you only need 1.
+
  */
 
 // counter1 code
@@ -56,10 +62,8 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning( /*Code Here*/ ) {
-
-    /*Code Here*/
-
+function inning() {
+    return points = Math.floor(Math.random() * (3 - 0) + 0);
 }
 
 /* Task 3: finalScore()
