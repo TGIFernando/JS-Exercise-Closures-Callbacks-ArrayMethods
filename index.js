@@ -65,7 +65,7 @@ Write a function called `inning` that generates a random number of points that a
 function inning() {
     let points = 0;
     return function addPoints() {
-        points = points + Math.floor(Math.random() * (3 - 0) + 0);
+        points = points + Math.floor(Math.random() * Math.floor(2));
         return points
     }
 }
@@ -84,19 +84,17 @@ finalScore(inning, 9) might return:
 
 */
 
-function finalScore(num) {
+function finalScore(inning, num) {
     let scores = [];
-    let homeTeam = inning();
-    let awayTeam = inning();
+    let homeTeam = inning;
+    let awayTeam = inning;
     for (let i = 0; i < num - 1; i++) {
-        homeTeam();
-        awayTeam();
         console.log(homeTeam(), awayTeam());
     }
     console.log(`Home: ${homeTeam()} Away: ${awayTeam()}`);
     return scores = [homeTeam(), awayTeam()];
 }
-finalScore(9);
+finalScore(inning(), 9);
 
 /* Task 4: 
 
@@ -120,24 +118,22 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(num) {
-    let homeTeam = inning();
-    let awayTeam = inning();
+function scoreboard(inning, num) {
+    let homeTeam = inning;
+    let awayTeam = inning;
     let inn = 0;
     let stat = [];
     for (let i = 0; i < num; i++) {
-        homeTeam();
-        awayTeam();
         inn++;
         stat.push({ inning: inn, home: homeTeam(), away: awayTeam() });
     }
     console.log(`${stat[0].inning}st inning: Away ${stat[0].away} - Home ${stat[0].home}`);
     console.log(`${stat[1].inning}nd inning: Away ${stat[1].away} - Home ${stat[1].home}`);
     console.log(`${stat[2].inning}rd inning: Away ${stat[2].away} - Home ${stat[2].home}`);
-    for (let j = 2; j < num; j++) {
+    for (let j = 3; j < num; j++) {
         console.log(`${stat[j].inning}th inning: Away ${stat[j].away} - Home ${stat[j].home}`);
     }
     console.log(`Final Score: inning: Away ${stat[8].away} - Home ${stat[8].home}`);
     return stat;
 }
-a = scoreboard(9);
+a = scoreboard(inning(), 9);
