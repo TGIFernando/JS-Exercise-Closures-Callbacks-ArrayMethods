@@ -65,9 +65,8 @@ Write a function called `inning` that generates a random number of points that a
 function inning() {
     let points = 0;
     return function addPoints() {
-        points = points + Math.floor(Math.random() * Math.floor(2));
-        return points
-    }
+        return (points = Math.floor(Math.random() * 4));
+    };
 }
 
 /* Task 3: finalScore()
@@ -85,16 +84,14 @@ finalScore(inning, 9) might return:
 */
 
 function finalScore(inning, num) {
-    let scores = [];
-    let homeTeam = inning;
-    let awayTeam = inning;
-    for (let i = 0; i < num - 1; i++) {
-        console.log(homeTeam(), awayTeam());
+    let homeTeam = 0;
+    let awayTeam = 0;
+    for (let i = 0; i < num; i++) {
+        homeTeam += inning();
+        awayTeam += inning();
     }
-    console.log(`Home: ${homeTeam()} Away: ${awayTeam()}`);
-    return scores = [homeTeam(), awayTeam()];
+    return { Home: homeTeam, Away: awayTeam };
 }
-finalScore(inning(), 9);
 
 /* Task 4: 
 
@@ -118,22 +115,18 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(inning, num) {
-    let homeTeam = inning;
-    let awayTeam = inning;
-    let inn = 0;
-    let stat = [];
-    for (let i = 0; i < num; i++) {
-        inn++;
-        stat.push({ inning: inn, home: homeTeam(), away: awayTeam() });
-    }
-    console.log(`${stat[0].inning}st inning: Away ${stat[0].away} - Home ${stat[0].home}`);
-    console.log(`${stat[1].inning}nd inning: Away ${stat[1].away} - Home ${stat[1].home}`);
-    console.log(`${stat[2].inning}rd inning: Away ${stat[2].away} - Home ${stat[2].home}`);
-    for (let j = 3; j < num; j++) {
-        console.log(`${stat[j].inning}th inning: Away ${stat[j].away} - Home ${stat[j].home}`);
-    }
-    console.log(`Final Score: inning: Away ${stat[8].away} - Home ${stat[8].home}`);
-    return stat;
+let homeScore = 0;
+let awayScore = 0;
+
+function getInningScore(inning, num) {
+    return (iScore = `Inning number ${num}: ${(awayScore += inning())} - ${(homeScore += inning())}`);
 }
-a = scoreboard(inning(), 9);
+
+function scoreboard(getInningScore, inning, num) {
+    for (let i = 0; i < num; i++) {
+        console.log(getInningScore(inning, num));
+    }
+    return `Final Score: ${awayScore} - ${homeScore}`;
+}
+a = scoreboard(getInningScore, inning(), 9);
+console.log(a);

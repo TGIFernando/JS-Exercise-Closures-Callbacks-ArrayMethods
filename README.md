@@ -44,8 +44,10 @@ Find the file `index.js` and complete the tasks until your tests are passing.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
-2. Study the following code, then answer the questions below.
 
+Clouser is used to callback items from a parent function.
+
+2. Study the following code, then answer the questions below.
 ```js
 function personalDice(name){
   return function(){
@@ -65,8 +67,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+In the return function, name and new roll
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+the name and rolled a will stay the same where as newroll can change.
+
 c. What is the lexical scope of `newRoll`? 
+
+A var declared outside a function can be used in a function
 
 ### Task 3 - Stretch Goals
 
